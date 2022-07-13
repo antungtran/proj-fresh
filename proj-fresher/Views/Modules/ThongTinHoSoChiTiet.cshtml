@@ -1,0 +1,24 @@
+﻿@using Training.Models
+
+@model VModuleSettings
+@{
+    var id = "";
+    var name = "";
+    var jsonSettings = "";
+    if (Model != null)
+    {
+        id = Model.Id ?? "";
+        name = Model.Name ?? "";
+        jsonSettings = Model.JsonSettings != null ? Newtonsoft.Json.JsonConvert.SerializeObject(Model.JsonSettings) : "";
+    }
+
+    var vModuleId = Guid.NewGuid().ToString();
+}
+
+<div class="VModule" id="@id" vmodule-id="@vModuleId" vmodule-name="tracuuhoso" vmodule-settings="@jsonSettings">
+
+    <!--Nội dung html module-->
+    <input id="txtName"/>
+
+    <script defer src="~/Assets/modules/thongtinhosochitiet.js"></script>
+</div>
